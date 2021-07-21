@@ -32,3 +32,5 @@ involving the following steps:
   * Audit code to find any potential similar problems.
   * Prepare fixes for all releases still under maintenance. These fixes will be
     released as fast as possible.
+
+Refer to CyberArk [Security Vulnerability Policy](https://www.cyberark.com/cyberark-security-vulinerability-policy.pdf) for more details.

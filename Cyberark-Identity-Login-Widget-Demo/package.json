@@ -1,7 +1,6 @@
 {
-  "name": "@skonduri/loginwidget",
   "version": "1.0.0",
-  "description": "Login Widget Demo",
+  "description": "Cyberark Identity Login Widget Demo",
   "main": "server.js",
   "dependencies": {
     "express": "^4.17.1"
