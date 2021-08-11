@@ -28,8 +28,8 @@ Sample node.js web application to demonstrate the usage of CyberArk Identity Log
 ## Web App Configuration
 <a id="tenant-details-setup"></a>
 ### Tenant Details in Code
-* Replace <TENANT_API_FQDN> in 'LoginWidget.html' with your tenant FQDN (Example : if ur tenant url is 'https://abc0123.my.idaptive.app' then FQDN is 'abc0123.my.idaptive.app')
-* Replace <TENANT_URL> in 'server.js' with your tenant url
+* Replace <TENANT_API_FQDN> in 'LoginWidget.html' with your tenant FQDN (Example : When the tenant url is 'https://abc0123.my.idaptive.app' then TENANT_API_FQDN will be 'abc0123.my.idaptive.app')
+* Replace <TENANT_URL> in 'server.js' with actual tenant url
 
 <a id="integration-steps-with-cyberark-identity-server"></a>
 ### Integration Steps with CyberArk Identity Server
@@ -37,8 +37,8 @@ Sample node.js web application to demonstrate the usage of CyberArk Identity Log
    -  <img src="./media/DNS_setting.PNG" style="width:2.0625in;height:2.64583in" />
 
 <a id="start-web-application"></a>
-## Start Web Application(Commands to start the application)
-Open Command Prompt in working directory
+## Start Web Application
+Open Command Prompt in working directory and execute the below command to start the application
 
 ```console
 npm install
@@ -53,4 +53,4 @@ Cyberark Identity Team
 <a id="license"></a>
 ## License
 
-This project is licensed under Apache - see [`LICENSE`](LICENSE) for more details.
+This project is licensed under Apache - see [`LICENSE`](../LICENSE) for more details.

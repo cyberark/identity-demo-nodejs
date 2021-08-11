@@ -8,7 +8,7 @@ var http = require( "http" ),
 
 app.get( "*",function( req, res ) {
     res.setHeader('Strict-Transport-Security','max-age=31536000; includeSubDomains');
-    res.setHeader("Content-Security-Policy", "script-src 'self' https://aaa0001-star.my.localdev.idaptive.app/ 'unsafe-inline' 'unsafe-eval'");
+    res.setHeader("Content-Security-Policy", "script-src 'self' <TENANT_URL> 'unsafe-inline' 'unsafe-eval'");
     res.sendFile(pathUtils.resolve( __dirname, "LoginWidget.html" ));
 } );
 
