@@ -1,15 +1,30 @@
 {
-  "version": "1.0.0",
-  "description": "Cyberark Identity Login Widget Demo",
-  "main": "server.js",
-  "dependencies": {
-    "express": "^4.17.1"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "author": "",
-  "license": "ISC"
+	"author": "CYBR",
+	"name": "@cyberark-identity/identity-demo-nodejs-login-widget",
+	"version": "1.0.0",
+	"description": "CyberArk Identity Login Widget Demo",
+	"license": "Apache-2.0",
+	"main": "server.js",
+	"dependencies": {
+		"express": "^4.17.1"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node server.js"
+	},
+	"homepage": "",
+	"keywords": [
+		"CyberArk",
+		"Identity",
+		"CIAM",
+		"Embedded",
+		"Login",
+		"Widget",
+		"Demo"
+	],
+	"bugs": {
+		"url": "",
+		"email": "product_security@cyberark.com"
+	}
 }
