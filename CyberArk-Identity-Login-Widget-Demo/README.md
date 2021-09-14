@@ -44,15 +44,15 @@ Open Command Prompt in working directory and execute the below command to start 
 npm install
 node serve.js
 ```
-Open http://localhost:5000 in the browser to interact with Cyberark Identity Login Widget
+Open http://localhost:5000 in the browser to interact with CyberArk Identity Login Widget
 
 ## Code Maintainers
 
-Cyberark Identity Team
+CyberArk Identity Team
 
 <a id="license"></a>
 ## License
 
-This project is licensed under Apache - see [`LICENSE`](../LICENSE) for more details.
+This project is licensed under Apache License 2.0 - see [`LICENSE`](../LICENSE) for more details.
 
 Copyright (c) 2021 CyberArk Software Ltd. All rights reserved.
