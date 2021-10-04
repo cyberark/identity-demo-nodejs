@@ -1,0 +1,67 @@
+doctype html
+html(lang='en')
+  head
+    link(
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" 
+      crossorigin="anonymous"
+    )
+
+    script(src='/javascripts/mfapoll.js')
+      
+    
+  body
+    nav.navbar.navbar-expand-md.navbar-dark.bg-dark.mb-4
+
+      a.navbar-brand(href='#') 
+        img(
+          src='/images/cyberark-icon.png'
+          alt='CyberArk'
+        )
+        CyberArk OIDC Client
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarCollapse', aria-controls='navbarCollapse', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarCollapse.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item
+            a.nav-link(href='/home')
+              | Home 
+              span.sr-only
+    main.container(role='main')
+      .jumbotron
+      if(action == 'customerLogin')
+        h2 Sign In
+        p
+          form(action='/auth/startAuth', method='POST')
+            .form-group
+              label(for='inputEmail') User Name
+              input(type="email" name="username" id="inputEmail" class="form-control" placeholder="Enter Username" required autofocus)
+            p
+            button.btn.btn-primary(type='submit') Submit
+      else if(action == 'mechanisms')
+        h2 Sign In
+        p
+          form(action='/auth/choosemech', method='POST')
+            .form-group
+              label(for='mechanisms') Select MFA factor
+              select(type="email" name="mechanismId" id="mechanisms" class="form-control" required autofocus)
+                each mech in Mechanisms
+                  option(value=mech.MechanismId) #{mech.PromptSelectMech}
+            p
+            button.btn.btn-primary(type='submit' id="mechbtn") Submit
+      else if(action == 'mfaanswer')
+        script(type='text/javascript').
+          pollOOBstatus("#{tenantFqdn}","#{SessionId}","#{Mechanism.MechanismId}","#{Mechanism.AnswerType}");
+        h2 Sign In
+        p
+          form(action='/auth/advanceAuth', method='POST')
+            .form-group
+              label(for='inputMech') #{Mechanism.PromptMechChosen}
+              input(type="password" name="answer" id="inputMech" class="form-control" hidden=!Mechanism.AnswerType.includes("Text")
+                placeholder=Mechanism.PromptSelectMech required autofocus)
+            p
+            button.btn.btn-primary(type='submit' id="answerbtn" onclick="return abortPoll();" hidden=!Mechanism.AnswerType.includes("Text")) Submit
+            p
+            .success    
+

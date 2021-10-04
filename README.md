@@ -1,4 +1,4 @@
-# Node.js Sample Applications for CyberArk Identity
+# Node.js Sample Applications from CyberArk Identity
 **Status**: Community
 
 This repository is a collection of sample applications that demonstrate various CyberArk Identity use-cases in a Node.js application.
@@ -9,7 +9,8 @@ Below are the sample application list.
 
 | Sample | Description |
 |--------|-------------|
-| [CyberArk Identity Login Widget Demo](./CyberArk-Identity-Login-Widget-Demo) | Node.js application that uses the CyberArk Identity Login Widget to authenticate the user. |
+| [Login Widget Demo](./CyberArk-Identity-Login-Widget-Demo) | Node.js application that uses the CyberArk Identity Login Widget to authenticate the user. |
+| [OIDC Flows Demo](./CyberArk-Identity-OIDC-Demo) |CyberArk Identity platform with OIDC flows in Node.js.|
 
 ## Code Maintainers
 CyberArk Identity Team

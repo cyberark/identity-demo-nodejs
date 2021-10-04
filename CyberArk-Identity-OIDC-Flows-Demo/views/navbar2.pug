@@ -1,0 +1,114 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='/images/cyberark-icon.png')
+
+    title CyberArk OIDC Client
+
+    link(rel='stylesheet' href='/stylesheets/idaptiveLogin.css')
+    link(rel='stylesheet' href='/stylesheets/userinfo.css')
+    link(
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" 
+      crossorigin="anonymous"
+    )
+    link(href='/navbar-top.css', rel='stylesheet')
+    link(rel='stylesheet' type='text/css' href=cyberArkCss)
+    script(src=cyberArkJs)
+    script(src='/javascripts/loginwidget.js')
+    
+    script(type='text/javascript').
+      initializeLoginWidget("#{tenantFqdn}","#{resourceUrlPath}","#{appKey}");
+
+  body
+    nav.navbar.navbar-expand-md.navbar-dark.bg-dark.mb-4
+
+      a.navbar-brand(href='#') 
+        img(
+          src='/images/cyberark-icon.png'
+          alt='CyberArk'
+        ) 
+        CyberArk OIDC Client
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarCollapse', aria-controls='navbarCollapse', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarCollapse.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item
+            a.nav-link(href='/home')
+              | Home 
+              span.sr-only
+          if (content == null || !(content.user || content.sessionTokens || content.claims))
+            li.nav-item.active
+                a.nav-link(href='/redirectLogin') CyberArk Hosted Login
+            li.nav-item
+                a.nav-link(href='/loginwidget') Embedded Login
+            li.nav-item
+                a.nav-link(href='/auth/userLogin') My Login Page
+          else
+            if (content != null && content.user)
+              li.nav-item
+                a.nav-link(href='/user/userinfo') UserInfo
+            if (content != null && content.sessionTokens)
+              li.nav-item
+                a.nav-link(href='/user/tokens') Token Set
+            if (content != null && content.claims)
+              li.nav-item
+                a.nav-link(href='/user/claims') Claims
+            li.nav-item
+              a.nav-link(href='/logout') Logout
+
+    main.container(role='main')
+      .jumbotron
+      if (content == null || content.action == 'login')
+        h1 NodeJs OIDC Client
+        p.lead
+          | Experience the secure and flexible OIDC authentication process
+        if (content != null && content.user)
+          b You are now logged in as #{content.user.name}...
+          p
+          p
+        if (content != null && content.user)
+          a(href='/user/userinfo') View User Info
+          p
+        if (content != null && content.sessionTokens)
+          a(href='/user/tokens') View Token Set
+          p
+        if (content != null && content.claims)
+          a(href='/user/claims') View Claims
+
+      else if(content.action == 'loginwidget')
+          .idaptive-login
+      else if(content.action == 'logout')
+          h2 Thank you for using OIDC Client..
+      else if(content.action == 'userinfo' && content.user)
+        h2 User Info
+        table.userinfotable
+          each val, key in content.user
+            tr
+                td=key
+                td=val
+      else if(content.action == 'claims' && content.claims)
+        h2 Claims
+        table.claims
+            each val, key in content.claims
+              tr
+                td=key
+                td=val
+      else if(content.action == 'tokens' && content.sessionTokens)
+        h2 Token Set
+        table.tokensettable
+          each val, key in content.sessionTokens
+              tr
+                td=key
+                td=val
+
+
+
+            
+          
+    
