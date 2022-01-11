@@ -8,6 +8,6 @@ It features two different login flows
 It also supports all OIDC flows
 1. Authorization code flow [with PKCE]
 2. Implicit
-3. Hybrid. 
+3. Hybrid
 
 Find more details here [CyberArk Identity Developer Documentation - Enable OIDC on your NodeJS application](https://identity-developer.cyberark.com/docs/enable-oidc-in-your-nodejs-application)

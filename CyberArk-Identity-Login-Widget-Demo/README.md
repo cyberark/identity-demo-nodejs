@@ -32,11 +32,13 @@ Sample node.js web application to demonstrate the usage of CyberArk Identity Log
 <a id="tenant-details-setup"></a>
 ### Tenant Details in Code
 * Replace <TENANT_API_FQDN> in 'LoginWidget.html' with your tenant FQDN (Example : When the tenant url is 'https://abc0123.my.idaptive.app' then TENANT_API_FQDN will be 'abc0123.my.idaptive.app')
-* Replace <TENANT_URL> in 'server.js' with actual tenant url
+* Replace <TENANT_URL> in 'server.js' with actual tenant url (Example: 'https://abc0123.my.idaptive.app')
 
 <a id="integration-steps-with-cyberark-identity-server"></a>
 ### Integration Steps with CyberArk Identity Server
-* Login into the CyberArk Identity Admin Portal 
+* Login into the CyberArk Identity Admin Portal.
+* Navigate to Settings -> Authentication -> Security Settings.
+* In **API security section**, add **localhost** to make it as a trusted domain.
    -  <img src="./media/DNS_setting.PNG" style="width:2.0625in;height:2.64583in" />
 
 <a id="start-web-application"></a>
