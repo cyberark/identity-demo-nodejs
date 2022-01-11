@@ -11,13 +11,16 @@ Sample node.js web application to demonstrate the usage of CyberArk Identity Log
 
 # Contents
 <!-- MarkdownTOC -->
-- [Setup](#web-app-setup)
-    - [Prerequisite](#prerequisites-to-understand-web-application)
-	- [Web App Configuration](#setup-web-application)
-		- [Tenant Details in Code](#tenant-details-setup)
+- [Login Widget Demo](#login-widget-demo)
+- [Contents](#contents)
+- [Setup](#setup)
+	- [Prerequisite](#prerequisite)
+	- [Web App Configuration](#web-app-configuration)
+		- [Tenant Details in Code](#tenant-details-in-code)
 		- [Integration Steps with CyberArk Identity Server](#integration-steps-with-cyberark-identity-server)
 	- [Start Web Application](#start-web-application)
-- [License](#license)
+	- [Code Maintainers](#code-maintainers)
+	- [License](#license)
 <a id="web-app-setup"></a>
 # Setup
 <a id="prerequisites-to-understand-web-application"></a>
@@ -42,7 +45,7 @@ Open Command Prompt in working directory and execute the below command to start 
 
 ```console
 npm install
-node serve.js
+node server.js
 ```
 Open http://localhost:5000 in the browser to interact with CyberArk Identity Login Widget
 
