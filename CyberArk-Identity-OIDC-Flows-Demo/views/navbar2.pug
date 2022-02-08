@@ -65,7 +65,7 @@ html(lang='en')
     main.container(role='main')
       .jumbotron
       if (content == null || content.action == 'login')
-        h1 NodeJs OIDC Client
+        h1 Node.js OIDC Client
         p.lead
           | Experience the secure and flexible OIDC authentication process
         if (content != null && content.user)
@@ -82,7 +82,7 @@ html(lang='en')
           a(href='/user/claims') View Claims
 
       else if(content.action == 'loginwidget')
-          .idaptive-login
+          .cyberark-login
       else if(content.action == 'logout')
           h2 Thank you for using OIDC Client..
       else if(content.action == 'userinfo' && content.user)

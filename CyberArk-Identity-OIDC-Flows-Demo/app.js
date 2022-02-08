@@ -49,9 +49,9 @@ const issuerUrl = process.env.ISSUER_URL;
 const app_key = process.env.APP_KEY;
 const client_id = process.env.CLIENT_ID;
 const client_secret = process.env.CLIENT_SECRET;
-const post_authorize_redirect= process.env.POST_AUTHORIZE_CALLBACK;//configure this in authorized web app redirect uris
+const post_authorize_redirect= process.env.POST_AUTHORIZE_CALLBACK; //configure this in authorized web app redirect uris
 const post_logout_callback = process.env.POST_LOGOUT_CALLBACK;
-const resource_urlPath = process.env.RESOURCE_URL;//If follow resourcUrl approach, configure in web app on Admin
+const resource_urlPath = process.env.RESOURCE_URL; //If follow resourceUrl approach, configure in web app on Admin
 const response_type = process.env.RESPONSE_TYPE;
 const scope = process.env.SCOPE;
 /*parameters required for invoking the client library*/
