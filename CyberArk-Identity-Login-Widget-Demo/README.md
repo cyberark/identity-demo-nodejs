@@ -60,4 +60,4 @@ CyberArk Identity Team
 
 This project is licensed under Apache License 2.0 - see [`LICENSE`](../LICENSE) for more details.
 
-Copyright (c) 2021 CyberArk Software Ltd. All rights reserved.
+Copyright (c) 2022 CyberArk Software Ltd. All rights reserved.
