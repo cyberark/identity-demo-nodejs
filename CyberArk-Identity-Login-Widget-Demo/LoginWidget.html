@@ -1,42 +1,29 @@
 <html lang="en">
-    <head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link rel="stylesheet" type="text/css" href="https://<TENANT_API_FQDN>/vfslow/lib/uibuild/standalonelogin/css/login.css">
-        <script src="https://<TENANT_API_FQDN>/vfslow/lib/uibuild/standalonelogin/login.js"></script>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <!-- Below Line imports the required css for the widget -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://<TENANT_FQDN>/vfslow/lib/uibuild/standalonelogin/css/login.css"
+    />
+    <script src="https://<TENANT_FQDN>/vfslow/lib/uibuild/standalonelogin/login.js"></script>
 
-
-        <style type="text/css">
-            .cyberark-login .logo-container {
-                background-color: #F7F7F7;
-            }
-            .cyberark-login .login-form,
-            .cyberark-login .form-container {
-                background-color: #363A40;
-            }
-            .cyberark-login button,
-            .cyberark-login button.disabled  {
-                background-color: #0280e5;
-            }
-        </style>
-
-
-        <script type="text/javascript">
-            document.addEventListener('DOMContentLoaded', function () {
-                LaunchLoginView({
-                    "containerSelector": ".cyberark-login",
-                    "initialTitle": "Sign In",
-                    "defaultTitle": "Authentication",
-                    "allowSocialLogin": false,
-                    "allowRememberMe": true,
-                    "allowRegister": true,
-                    "allowForgotUsername": true,
-                    "apiFqdn": "<TENANT_API_FQDN>"
-                });
-            });
-        </script>
-    </head>
-    <body class="cyberark-login" style="margin:0px;">
-    </body>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function () {
+        LaunchLoginView({
+          containerSelector: ".cyberark-login",
+          apiFqdn: "<TENANT_FQDN>",
+          widgetId: "<WIDGET_ID>"
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="cyberark-login" style="width: auto; height: 100vh"></div>
+  </body>
 </html>

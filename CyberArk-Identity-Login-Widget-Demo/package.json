@@ -1,7 +1,7 @@
 {
-	"author": "CYBR",
-	"name": "@cyberark-identity/identity-demo-nodejs-login-widget",
-	"version": "1.0.0",
+	"author": "@cyberark",
+	"name": "@cyberark/identity-demo-nodejs-login-widget",
+	"version": "1.0.1",
 	"description": "CyberArk Identity Login Widget Demo",
 	"license": "Apache-2.0",
 	"main": "server.js",
@@ -24,7 +24,6 @@
 		"Demo"
 	],
 	"bugs": {
-		"url": "",
 		"email": "product_security@cyberark.com"
 	}
 }
