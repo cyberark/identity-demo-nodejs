@@ -52,7 +52,7 @@ html(lang='en')
             button.btn.btn-primary(type='submit' id="mechbtn") Submit
       else if(action == 'mfaanswer')
         script(type='text/javascript').
-          pollOOBstatus("#{tenantFqdn}","#{SessionId}","#{Mechanism.MechanismId}","#{Mechanism.AnswerType}");
+          pollOOBstatus("#{tenantId}","#{SessionId}","#{Mechanism.MechanismId}","#{Mechanism.AnswerType}");
         h2 Sign In
         p
           form(action='/auth/advanceAuth', method='POST')

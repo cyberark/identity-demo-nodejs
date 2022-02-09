@@ -37,31 +37,34 @@ table {
 }
 
 .tokensettable {
-  table-layout:fixed;
+  table-layout: fixed;
   width: 100%;
 }
 
-td, th {
+td,
+th {
   padding: 5px;
   word-break: break-all;
 }
 
 td {
-  border-right: : 4px solid black;
-    border-left: 4px solid black;
+  border-right: 4px solid black;
+  border-left: 4px solid black;
 }
 
-tr:nth-child(odd){
+tr:nth-child(odd) {
   background-color: #f9f3f3;
   border: 1px groove black;
 }
 
-tr:hover {background-color: #8fd6e1;}
+tr:hover {
+  background-color: #8fd6e1;
+}
 
 th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
 }

@@ -82,7 +82,8 @@ html(lang='en')
           a(href='/user/claims') View Claims
 
       else if(content.action == 'loginwidget')
-          .cyberark-login
+          .row(class='justify-content-center')
+            .cyberark-login
       else if(content.action == 'logout')
           h2 Thank you for using OIDC Client..
       else if(content.action == 'userinfo' && content.user)
