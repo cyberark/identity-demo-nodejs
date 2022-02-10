@@ -63,8 +63,8 @@ const appHostUrl = process.env.APP_HOST_URL;
 const tenantFqdn = process.env.TENANT_FQDN;
 const tenantId = tenantFqdn.slice(0, tenantFqdn.indexOf("."));
 const issuerUrl = process.env.ISSUER_URL;
-const app_key = process.env.APP_KEY;
 const client_id = process.env.CLIENT_ID;
+const app_key = client_id;
 const client_secret = process.env.CLIENT_SECRET;
 const post_authorize_redirect = process.env.POST_AUTHORIZE_CALLBACK; //configure this in authorized web app redirect uris
 const post_logout_callback = process.env.POST_LOGOUT_CALLBACK;
@@ -87,6 +87,7 @@ const response_mode_implicit_hybrid_flows = "form_post";
 const cyberArkInternalFileMap = "/vfslow/lib/uibuild/standalonelogin";
 const cyberArkCss = tenantUrl + cyberArkInternalFileMap + "/css/login.css";
 const cyberArkJs = tenantUrl + cyberArkInternalFileMap + "/login.js";
+const widgetId = process.env.widgetId;
 /*Passing locals to templates*/
 
 /*Actual Implementation*/
@@ -122,6 +123,7 @@ Issuer.discover(issuerUrl) // => Promise
       res.locals.cyberArkJs = cyberArkJs;
       res.locals.resourceUrlPath = resource_urlPath;
       res.locals.appKey = app_key;
+      res.locals.widgetId = widgetId;
       next();
     });
     /*routers*/

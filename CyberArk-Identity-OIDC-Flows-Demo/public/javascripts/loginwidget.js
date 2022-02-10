@@ -28,13 +28,12 @@ function failureHandler(data) {
     data.Summary;
 }
 
-function initializeLoginWidget(tenantFqdn, resource_url_path, appKey) {
-  resourceUrlPath = resource_url_path;
+function initializeLoginWidget(tenantFqdn, widgetId) {
   document.addEventListener("DOMContentLoaded", function () {
     LaunchLoginView({
       containerSelector: ".cyberark-login",
-      apiFqdn: "<TENANT_FQDN>",
-      widgetId: "<WIDGET_ID>",
+      apiFqdn: tenantFqdn,
+      widgetId: widgetId,
     });
   });
 }
