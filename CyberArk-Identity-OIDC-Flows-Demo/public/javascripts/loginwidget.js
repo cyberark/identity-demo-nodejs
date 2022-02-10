@@ -28,11 +28,11 @@ function failureHandler(data) {
     data.Summary;
 }
 
-function initializeLoginWidget(tenantFqdn, widgetId) {
+function initializeLoginWidget(apiFqdn, widgetId) {
   document.addEventListener("DOMContentLoaded", function () {
     LaunchLoginView({
       containerSelector: ".cyberark-login",
-      apiFqdn: tenantFqdn,
+      apiFqdn: apiFqdn,
       widgetId: widgetId,
     });
   });

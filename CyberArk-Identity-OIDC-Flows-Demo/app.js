@@ -87,7 +87,8 @@ const response_mode_implicit_hybrid_flows = "form_post";
 const cyberArkInternalFileMap = "/vfslow/lib/uibuild/standalonelogin";
 const cyberArkCss = tenantUrl + cyberArkInternalFileMap + "/css/login.css";
 const cyberArkJs = tenantUrl + cyberArkInternalFileMap + "/login.js";
-const widgetId = process.env.widgetId;
+const apiFqdn = process.env.API_FQDN;
+const widgetId = process.env.WIDGET_ID;
 /*Passing locals to templates*/
 
 /*Actual Implementation*/
@@ -123,6 +124,7 @@ Issuer.discover(issuerUrl) // => Promise
       res.locals.cyberArkJs = cyberArkJs;
       res.locals.resourceUrlPath = resource_urlPath;
       res.locals.appKey = app_key;
+      res.locals.apiFqdn = apiFqdn;
       res.locals.widgetId = widgetId;
       next();
     });
