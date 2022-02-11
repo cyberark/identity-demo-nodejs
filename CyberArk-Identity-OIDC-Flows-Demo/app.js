@@ -34,27 +34,6 @@ if (result.error) {
   throw result.error;
 }
 
-var app = express();
-// view engine setup
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "pug");
-app.use(logger("dev"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
-var mySession = {
-  path: "/",
-  secret: "99af52bb-7c41-4304-9080-8e1e6179ba1c",
-  name: "openid_nodejs_app",
-  resave: false,
-  saveUninitialized: true,
-  httpOnly: true,
-  secure: false, //for only https
-  maxAge: null,
-  cookie: {},
-};
-app.use(session(mySession));
 /*Tenant and Resource configurations*/
 //In sync with configuration on Admin Portal
 //make sure to enable CORS in Admin Portal in API Security
@@ -62,6 +41,7 @@ app.use(session(mySession));
 const appHostUrl = process.env.APP_HOST_URL;
 const tenantFqdn = process.env.TENANT_FQDN;
 const tenantId = tenantFqdn.slice(0, tenantFqdn.indexOf("."));
+const oidcAppId = process.env.OIDC_APP_ID;
 const issuerUrl = process.env.ISSUER_URL;
 const client_id = process.env.CLIENT_ID;
 const app_key = client_id;
@@ -89,9 +69,33 @@ const cyberArkCss = tenantUrl + cyberArkInternalFileMap + "/css/login.css";
 const cyberArkJs = tenantUrl + cyberArkInternalFileMap + "/login.js";
 const apiFqdn = process.env.API_FQDN;
 const widgetId = process.env.WIDGET_ID;
-/*Passing locals to templates*/
 
-/*Actual Implementation*/
+
+var app = express();
+// view engine setup
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "pug");
+app.use(logger("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, "public")));
+// Setup the session
+var mySession = {
+  path: "/",
+  secret: client_secret,
+  name: oidcAppId,
+  resave: false,
+  saveUninitialized: true,
+  httpOnly: true,
+  secure: false, //for only https
+  maxAge: null,
+  cookie: {},
+};
+app.use(session(mySession));
+
+
+/* Actual Implementation */
 Issuer.discover(issuerUrl) // => Promise
   .then(function (cyberarkIssuer) {
     const isAuthCodeFlow = response_type == "code";
@@ -118,6 +122,7 @@ Issuer.discover(issuerUrl) // => Promise
       state: currentState,
     });
 
+    /* Passing locals to templates */
     app.use((req, res, next) => {
       res.locals.tenantFqdn = tenantFqdn;
       res.locals.cyberArkCss = cyberArkCss;
